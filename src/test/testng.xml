@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="methods" thread-count="2">
+  <test name="C:/Mentoring Program/aqa_advanced_program_2024/src/test/java/com/reportportal/testngtest/RPTestTng.java">
+    <classes>
+      <class name="com.reportportal.testngtest.RPTestTng"> </class>
+    </classes>
+  </test>
+</suite>
