@@ -1,20 +1,21 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('H/5 * * * *') // Периодическая проверка репозитория каждые 5 минут
+    environment {
+        GIT_CREDENTIALS_ID = 'GithubCreds'
     }
 
-    environment {
-        GIT_CREDENTIALS_ID = 'GithubCreds' // ID для хранения ваших GitHub учетных данных в Jenkins
+    triggers {
+        cron('H H * * *')
+        githubPush()
     }
 
     stages {
         stage('Checkout') {
             steps {
                 withCredentials([usernamePassword(credentialsId: env.GIT_CREDENTIALS_ID,
-                        usernameVariable: 'USER',
-                        passwordVariable: 'TOKEN')]) {
+                                                  usernameVariable: 'USER',
+                                                  passwordVariable: 'TOKEN')]) {
                     git branch: 'master', url: 'https://github.com/yevhenii97/report-portal.git'
                 }
             }
