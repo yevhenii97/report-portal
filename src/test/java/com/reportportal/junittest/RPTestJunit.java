@@ -43,6 +43,7 @@ public class RPTestJunit extends BaseTest {
     loginPage.clickLoginButton();
     Assertions.assertEquals(isVisibleErrorMessage, loginPage.errorMessageIsVisible());
     Assertions.assertEquals(isVisibleSuccessMessage, loginPage.successMessageIsVisible());
+    //
   }
 
   @ParameterizedTest
